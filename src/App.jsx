@@ -13,6 +13,7 @@ import Footer from './components/Footer';
 
 import OnchainFeaturesPage from './pages/OnchainFeaturesPage';
 import PartnerEcosystemPage from './pages/PartnerEcosystemPage';
+import TrustedInstitutions from './components/TrustedInstitutions';
 import StocksPage from './pages/StocksPage';
 import InvestPage from './pages/InvestPage';
 import AlternativeAssetsPage from './pages/AlternativeAssetsPage';
@@ -23,10 +24,11 @@ function HomePage() {
     <div className="bg-[#030b1e] min-h-screen text-white font-sans selection:bg-blue-500/30">
 
       <Navbar />
-
       <Hero />
+      <TrustedInstitutions />
 
       <AboutSection />
+
 
       <InvestmentsSection />
 

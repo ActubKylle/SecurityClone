@@ -9,3 +9,38 @@
   --font-serif: "Cormorant Garamond", serif;
   --font-sans: "Inter", sans-serif;
 }
+
+@keyframes trustedScroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-33.333%);
+  }
+}
+
+.trusted-marquee {
+  animation: trustedScroll 38s linear infinite;
+}
+
+.trusted-marquee:hover {
+  animation-play-state: paused;
+}
+
+@keyframes logoScrollDown {
+  from {
+    transform: translateY(-50%);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+.logo-scroll {
+  animation: logoScrollDown 16s linear infinite;
+}
+
+.logo-scroll:hover {
+  animation-play-state: paused;
+}
