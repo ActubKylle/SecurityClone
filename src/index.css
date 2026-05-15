@@ -1,0 +1,11 @@
+@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Kung naa kay custom colors o fonts, ibutang diri sa v4 style */
+@theme {
+  --color-securitize-dark: #030b1e;
+  --font-serif: "Cormorant Garamond", serif;
+  --font-sans: "Inter", sans-serif;
+}
