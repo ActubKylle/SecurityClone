@@ -301,45 +301,137 @@ const isAbout = item.label === "About";
   );
 }
 function MobileMenu({ open, onClose }) {
-  return (
-    <>
-      <div
-        onClick={onClose}
-        className={`fixed inset-0 z-[9997] bg-black/40 backdrop-blur-sm transition-all lg:hidden ${
-          open ? "visible opacity-100" : "invisible opacity-0"
-        }`}
-      />
+  const [openDropdown, setOpenDropdown] = useState(null);
 
-      <aside
-        className={`fixed right-0 top-0 z-[9998] h-screen w-full max-w-[380px] bg-white shadow-2xl transition-transform duration-300 lg:hidden ${
-          open ? "translate-x-0" : "translate-x-full"
+  return (
+    <div
+      className={`fixed inset-0 z-[99999] bg-[#173d35]/95 transition-all duration-300 lg:hidden ${
+        open ? "visible opacity-100" : "invisible opacity-0"
+      }`}
+    >
+      <div
+        className={`absolute left-1/2 top-[24px] h-[calc(100vh-48px)] w-[calc(100%-32px)] max-w-[1022px] -translate-x-1/2 overflow-hidden bg-white shadow-2xl transition-all duration-300 ${
+          open ? "translate-y-0 opacity-100" : "-translate-y-4 opacity-0"
         }`}
       >
-        <div className="h-full overflow-y-auto px-6 pb-8 pt-[100px]">
-          <div className="flex flex-col">
-            {navItems.map((item) => (
-              <Link
-                key={item.label}
-                to={item.link || item.dropdown?.[0]?.link || "/"}
-                onClick={onClose}
-                className="border-b border-black/10 py-4 text-[15px] text-black"
-              >
-                {item.label}
-              </Link>
-            ))}
-          </div>
+        <div className="flex h-[86px] items-center justify-between border-b border-black/10 px-5 md:px-8">
+          <Link to="/" onClick={onClose} className="flex items-center">
+            <img
+              src="/assets/logodark.svg"
+              alt="Securitize"
+              className="h-[31px] w-auto"
+            />
+          </Link>
 
-          <div className="mt-8 flex flex-col gap-3">
-            <a href="#" className="rounded-full bg-black py-3 text-center text-sm font-medium text-white">
-              Sign Up
-            </a>
-            <a href="#" className="rounded-full border border-black/20 py-3 text-center text-sm font-medium text-black">
-              Log In
-            </a>
-          </div>
+          <button
+            type="button"
+            onClick={onClose}
+            className="flex h-10 w-10 items-center justify-center text-[34px] font-light leading-none text-black"
+          >
+            ×
+          </button>
         </div>
-      </aside>
-    </>
+
+        <div className="flex gap-2 border-b border-black/10 px-5 py-3 md:px-8">
+          <a
+            href="#"
+            className="rounded-full bg-[#03060d] px-6 py-[10px] text-[14px] font-semibold text-white"
+          >
+            Sign Up
+          </a>
+
+          <a
+            href="#"
+            className="rounded-full border border-black/25 px-6 py-[10px] text-[14px] font-medium text-black"
+          >
+            Log In
+          </a>
+        </div>
+
+        <div className="h-[calc(100%-147px)] overflow-y-auto">
+          <nav className="px-5 py-3 md:px-8">
+            {navItems.map((item) => {
+              const isOpen = openDropdown === item.label;
+
+              if (item.dropdown) {
+                return (
+                  <div key={item.label}>
+                    <button
+                      type="button"
+                      onClick={() =>
+                        setOpenDropdown(isOpen ? null : item.label)
+                      }
+                      className="flex w-full items-center gap-1 py-[17px] text-left text-[15px] font-normal text-[#374151]"
+                    >
+                      <span>{item.label}</span>
+                      <ChevronIcon open={isOpen} />
+                    </button>
+
+                    <div
+                      className={`grid transition-all duration-300 ${
+                        isOpen
+                          ? "grid-rows-[1fr] pb-4 opacity-100"
+                          : "grid-rows-[0fr] opacity-0"
+                      }`}
+                    >
+                      <div className="overflow-hidden">
+                        <div className="ml-5 flex flex-col gap-3 pb-2">
+                          {item.dropdown.map((link) => {
+                            if (link.section) {
+                              return (
+                                <p
+                                  key={link.section}
+                                  className="pt-2 text-[12px] font-medium uppercase tracking-wide text-black/40"
+                                >
+                                  {link.section}
+                                </p>
+                              );
+                            }
+
+                            return link.external ? (
+                              <a
+                                key={link.title}
+                                href={link.link}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                onClick={onClose}
+                                className="text-[15px] font-medium text-black"
+                              >
+                                {link.title} →
+                              </a>
+                            ) : (
+                              <Link
+                                key={link.title}
+                                to={link.link}
+                                onClick={onClose}
+                                className="text-[15px] font-medium text-black"
+                              >
+                                {link.title} →
+                              </Link>
+                            );
+                          })}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                );
+              }
+
+              return (
+                <Link
+                  key={item.label}
+                  to={item.link}
+                  onClick={onClose}
+                  className="block py-[17px] text-[15px] font-normal text-[#374151]"
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
+          </nav>
+        </div>
+      </div>
+    </div>
   );
 }
 
@@ -374,5 +466,6 @@ function CloseIcon() {
     </svg>
   );
 }
+
 
 export default Navbar;

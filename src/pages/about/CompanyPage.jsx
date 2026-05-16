@@ -86,7 +86,7 @@ export default function CompanyPage() {
       <section className="relative w-full h-[400px] md:h-[600px] overflow-hidden">
         <div className="absolute inset-0" style={{ backgroundColor: "rgb(8,24,56)" }} />
         <img
-          src="/assets/header-image.png"
+          src="/assets/about/header-image.png"
           alt="Tokenization is unavoidable"
           className="absolute inset-0 w-full h-full object-cover opacity-70"
         />
