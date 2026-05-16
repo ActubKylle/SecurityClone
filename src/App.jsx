@@ -24,6 +24,11 @@ import InstitutionalTokenizationPage from './pages/solutions/InstitutionalTokeni
 import FundAdministrationPage from "./pages/solutions/FundAdministrationPage";
 import DigitalAssetReportingPage from "./pages/solutions/DigitalAssetReportingPage";
 
+import IntroToTokenizationPage from "./pages/insights/IntroToTokenizationPage";
+import WhitepapersResearchPage from "./pages/insights/WhitepapersResearchPage";
+import VideosPage from "./pages/insights/VideosPage";
+import ArticlesPage from "./pages/insights/ArticlesPage";
+
 function HomePage() {
   return (
     <div className="bg-[#030b1e] min-h-screen text-white font-sans selection:bg-blue-500/30">
@@ -60,6 +65,24 @@ function App() {
 
         {/* Homepage */}
         <Route path="/" element={<HomePage />} />
+
+        <Route
+        path="/insights/intro-to-tokenization"
+        element={<IntroToTokenizationPage />}
+      />
+
+<Route
+  path="/insights/whitepapers"
+  element={<WhitepapersResearchPage />}
+/>
+<Route
+  path="/insights/videos"
+  element={<VideosPage />}
+/>
+<Route
+  path="/insights/articles"
+  element={<ArticlesPage />}
+/>
 
         {/* Separate Page */}
         <Route path="/onchain-features" element={<OnchainFeaturesPage />} />

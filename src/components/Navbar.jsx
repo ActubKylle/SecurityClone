@@ -34,8 +34,24 @@ const navItems = [
     ],
   },
   { label: "Ecosystem", link: "/partner-ecosystem" },
-  { label: "Resources", link: "/resources" },
-  { label: "About", link: "/about" },
+{
+  label: "Resources",
+  dropdown: [
+    { section: "Insights" },
+    { title: "Intro to Tokenization", link: "/insights/intro-to-tokenization" },
+    { title: "Whitepapers & Research", link: "/insights/whitepapers" },
+    { title: "Articles", link: "/insights/articles" },
+    { title: "Videos", link: "/insights/videos" },
+    { section: "Developers" },
+    { title: "APIs", link: "/apis" },
+    { title: "Bug Bounty", link: "/bug-bounty" },
+    {
+      title: "Vault Registrar Sandbox",
+      link: "https://labs.securitize.io/",
+      external: true,
+    },
+  ],
+},  { label: "About", link: "/about" },
 ];
 
 function Navbar({ variant = "dark" }) {
@@ -157,6 +173,63 @@ function Navbar({ variant = "dark" }) {
 }
 
 function Dropdown({ item, open }) {
+  const isResources = item.label === "Resources";
+
+  if (isResources) {
+    return (
+      <div
+        className={`absolute top-[75px] left-1/2 w-[292px] -translate-x-1/2 bg-white p-5 text-black shadow-2xl transition-all duration-200 ${
+          open
+            ? "visible translate-y-0 opacity-100"
+            : "invisible -translate-y-2 opacity-0"
+        }`}
+      >
+        <ul className="flex flex-col gap-2">
+          {item.dropdown.map((link, index) => {
+            if (link.section) {
+              return (
+                <li
+                  key={link.section}
+                  className={`-mx-5 border-b border-black/10 px-5 pb-2 pt-2 text-[12px] font-medium uppercase tracking-wide text-black/50 ${
+                    index === 0 ? "pt-0" : "mt-2"
+                  }`}
+                >
+                  {link.section}
+                </li>
+              );
+            }
+
+            const content = (
+              <p className="flex items-center gap-2 text-[16px] font-medium leading-[1.35] text-black">
+                {link.title}
+                <ArrowIcon />
+              </p>
+            );
+
+            return (
+              <li key={link.title}>
+                {link.external ? (
+                  <a
+                    href={link.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block py-[3px]"
+                  >
+                    {content}
+                  </a>
+                ) : (
+                  <Link to={link.link} className="block py-[3px]">
+                    {content}
+                  </Link>
+                )}
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+    );
+  }
+
   return (
     <div
       className={`absolute top-[75px] bg-white text-black shadow-2xl border border-black/10 transition-all duration-200 ${
@@ -194,7 +267,6 @@ function Dropdown({ item, open }) {
     </div>
   );
 }
-
 function MobileMenu({ open, onClose }) {
   return (
     <>

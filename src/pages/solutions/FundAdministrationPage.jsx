@@ -73,7 +73,7 @@ function FundAdministrationPage() {
               ["600+", "Funds Serviced"],
               ["10 years", "Proven Experience"],
             ].map(([num, label]) => (
-              <div key={label} className="flex h-[390px] flex-col justify-end bg-[linear-gradient(rgba(3,11,30,.35),rgba(3,11,30,.7)),url('/hero.png')] bg-cover bg-center p-7 text-white">
+              <div key={label} className="flex h-[390px] flex-col justify-end bg-[linear-gradient(rgba(3,11,30,.35),rgba(3,11,30,.7)),url('/bannerBuilding.png')] bg-cover bg-center p-7 text-white">
                 <h3 className="font-serif text-[42px] leading-none">{num}</h3>
                 <p className="mt-2 font-serif text-[22px] leading-none">{label}</p>
               </div>

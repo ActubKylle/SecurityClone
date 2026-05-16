@@ -211,7 +211,7 @@ function DigitalAssetReportingPage() {
       </section>
 
       <div className="h-[300px] overflow-hidden md:h-[400px]">
-        <img src="/assets/digital-reporting-banner.png" alt="City banner" className="h-full w-full object-cover" />
+        <img src="/assets/bannerBuilding.png" alt="City banner" className="h-full w-full object-cover" />
       </div>
 
       <section className="bg-white px-5 py-20 md:px-10 md:py-[120px]">
