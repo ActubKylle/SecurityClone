@@ -19,17 +19,17 @@ const navItems = [
       {
         title: "Tokenization As A Service",
         desc: "Tokenize your investment products on our regulation-focused platform.",
-        link: "/institutional-tokenization",
+        link: "/solutions/institutional-tokenization",
       },
       {
         title: "Fund Administration",
         desc: "Manage your entire fund on a single integrated platform.",
-        link: "/fund-administration",
+        link: "/solutions/fund-administration",
       },
       {
         title: "Digital Asset Reporting",
         desc: "Institutional-grade reporting for digital assets.",
-        link: "/digital-asset-reporting",
+        link: "/solutions/digital-asset-reporting",
       },
     ],
   },
