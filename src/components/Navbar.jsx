@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-
+import { Link,NavLink, useLocation } from "react-router-dom";
 /* ─────────────────────────────────────────────────────────────
    FONT INJECTION
    Geist       = Securitize's UI sans-serif (nav labels, buttons)
@@ -90,6 +89,19 @@ function Navbar({ variant = "dark" }) {
   const isLight = variant === "light";
   const isSolid = scrolled || isLight;
 
+  const location = useLocation();
+
+const isItemActive = (item) => {
+  if (item.link) return location.pathname === item.link;
+
+  if (item.dropdown) {
+    return item.dropdown.some((link) => link.link === location.pathname);
+  }
+
+  return false;
+};
+
+
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
     onScroll();
@@ -134,26 +146,41 @@ function Navbar({ variant = "dark" }) {
               onMouseEnter={() => item.dropdown && setActiveDropdown(item.label)}
               onMouseLeave={() => setActiveDropdown(null)}
             >
-              {item.dropdown ? (
-                <>
-                  <button
-                    className="flex items-center gap-1 text-sm opacity-80 transition-opacity hover:opacity-100"
-                    style={{ fontFamily: "'Geist', sans-serif" }}
-                  >
-                    {item.label}
-                    <ChevronIcon open={activeDropdown === item.label} />
-                  </button>
-                  <Dropdown item={item} open={activeDropdown === item.label} />
-                </>
-              ) : (
-                <Link
-                  to={item.link}
-                  className="text-sm opacity-80 transition-opacity hover:opacity-100"
-                  style={{ fontFamily: "'Geist', sans-serif" }}
-                >
-                  {item.label}
-                </Link>
-              )}
+             {item.dropdown ? (
+  <>
+    <button
+      className={`relative flex items-center gap-1 text-sm transition-opacity hover:opacity-100 ${
+        isItemActive(item) ? "opacity-100" : "opacity-70"
+      }`}
+      style={{ fontFamily: "'Geist', sans-serif" }}
+    >
+      {item.label}
+      <ChevronIcon open={activeDropdown === item.label} />
+
+      {isItemActive(item) && (
+        <span className="absolute -bottom-2 left-0 h-[1px] w-full bg-current" />
+      )}
+    </button>
+
+    <Dropdown item={item} open={activeDropdown === item.label} />
+  </>
+) : (
+  <NavLink
+    to={item.link}
+    className={({ isActive }) =>
+      `relative text-sm transition-opacity hover:opacity-100 ${
+        isActive ? "opacity-100" : "opacity-70"
+      }`
+    }
+    style={{ fontFamily: "'Geist', sans-serif" }}
+  >
+    {item.label}
+
+    {location.pathname === item.link && (
+      <span className="absolute -bottom-2 left-0 h-[1px] w-full bg-current" />
+    )}
+  </NavLink>
+)}
             </li>
           ))}
         </ul>

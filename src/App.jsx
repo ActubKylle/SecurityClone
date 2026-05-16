@@ -38,6 +38,8 @@ import InvestorRelationsPage from "./pages/about/InvestorRelationsPage";
 import PressReleasesPage from "./pages/about/PressReleasesPage";
 import LoginPage from "./pages/LoginPage";
 import RegistrationNamePage from "./pages/RegistrationNamePage";
+
+import PageLoader from "./components/PageLoader";
 function HomePage() {
   return (
     <div className="bg-[#030b1e] min-h-screen text-white font-sans selection:bg-blue-500/30">
@@ -70,63 +72,47 @@ function HomePage() {
 function App() {
   return (
     <BrowserRouter>
-      <Routes>
+      <PageLoader />
 
+      <Routes>
         {/* Homepage */}
         <Route path="/" element={<HomePage />} />
-<Route path="/login" element={<LoginPage />} />
-<Route path="/registration/name" element={<RegistrationNamePage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/registration/name" element={<RegistrationNamePage />} />
+
         <Route
-        path="/insights/intro-to-tokenization"
-        element={<IntroToTokenizationPage />}
-      />
+          path="/insights/intro-to-tokenization"
+          element={<IntroToTokenizationPage />}
+        />
 
-      <Route path="/about-us/our-story" element={<CompanyPage />} />
-<Route path="/about-us/careers" element={<CareersPage />} />
-<Route path="/about-us/media-coverage" element={<MediaCoveragePage />} />
-<Route path="/about-us/investor-relations" element={<InvestorRelationsPage />} />
-<Route path="/about-us/press-releases" element={<PressReleasesPage />} />
+        <Route path="/about-us/our-story" element={<CompanyPage />} />
+        <Route path="/about-us/careers" element={<CareersPage />} />
+        <Route path="/about-us/media-coverage" element={<MediaCoveragePage />} />
+        <Route path="/about-us/investor-relations" element={<InvestorRelationsPage />} />
+        <Route path="/about-us/press-releases" element={<PressReleasesPage />} />
 
+        <Route path="/insights/whitepapers" element={<WhitepapersResearchPage />} />
+        <Route path="/insights/videos" element={<VideosPage />} />
+        <Route path="/insights/articles" element={<ArticlesPage />} />
+        <Route path="/insights/bug-bounty" element={<BugBountyPage />} />
+        <Route path="/insights/apis" element={<APIsPage />} />
 
-
-<Route
-  path="/insights/whitepapers"
-  element={<WhitepapersResearchPage />}
-/>
-<Route
-  path="/insights/videos"
-  element={<VideosPage />}
-/>
-<Route
-  path="/insights/articles"
-  element={<ArticlesPage />}
-/>
-<Route
-  path="/insights/bug-bounty"
-  element={<BugBountyPage />}
-/>
-<Route
-  path="/insights/apis"
-  element={<APIsPage />}
-/>
-
-        {/* Separate Page */}
         <Route path="/onchain-features" element={<OnchainFeaturesPage />} />
         <Route path="/partner-ecosystem" element={<PartnerEcosystemPage />} />
-<Route
-  path="/solutions/digital-asset-reporting"
-  element={<DigitalAssetReportingPage />}
-/>
-         <Route path="/invest" element={<InvestPage />} />
+
+        <Route
+          path="/solutions/digital-asset-reporting"
+          element={<DigitalAssetReportingPage />}
+        />
+
+        <Route path="/invest" element={<InvestPage />} />
         <Route path="/investments/stocks" element={<StocksPage />} />
         <Route path="/investments/alternative-assets" element={<AlternativeAssetsPage />} />
         <Route path="/investments/registered-funds" element={<RegisteredFundsPage />} />
         <Route path="/solutions/institutional-tokenization" element={<InstitutionalTokenizationPage />} />
         <Route path="/solutions/fund-administration" element={<FundAdministrationPage />} />
-
       </Routes>
     </BrowserRouter>
   );
 }
-
 export default App;
