@@ -43,8 +43,8 @@ const navItems = [
     { title: "Articles", link: "/insights/articles" },
     { title: "Videos", link: "/insights/videos" },
     { section: "Developers" },
-    { title: "APIs", link: "/apis" },
-    { title: "Bug Bounty", link: "/bug-bounty" },
+    { title: "APIs", link: "/insights/apis" },
+    { title: "Bug Bounty", link: "/insights/bug-bounty" },
     {
       title: "Vault Registrar Sandbox",
       link: "https://labs.securitize.io/",

@@ -28,6 +28,10 @@ import IntroToTokenizationPage from "./pages/insights/IntroToTokenizationPage";
 import WhitepapersResearchPage from "./pages/insights/WhitepapersResearchPage";
 import VideosPage from "./pages/insights/VideosPage";
 import ArticlesPage from "./pages/insights/ArticlesPage";
+import BugBountyPage from "./pages/insights/BugBountyPage";
+import APIsPage from "./pages/insights/APIsPage";
+
+
 
 function HomePage() {
   return (
@@ -82,6 +86,14 @@ function App() {
 <Route
   path="/insights/articles"
   element={<ArticlesPage />}
+/>
+<Route
+  path="/insights/bug-bounty"
+  element={<BugBountyPage />}
+/>
+<Route
+  path="/insights/apis"
+  element={<APIsPage />}
 />
 
         {/* Separate Page */}
