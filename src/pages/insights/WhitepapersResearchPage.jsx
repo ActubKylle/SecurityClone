@@ -14,7 +14,7 @@ const whitepapers = [
     title: "DS Protocol",
     desc:
       "The DS Protocol by Securitize is a blockchain-based framework for the regulated issuance, management, and trading of digital securities and tokenized assets. It integrates ERC-20 compatible security tokens, smart contract-based DS Apps, and onchain services for identity, regulation, and communication.\n\nBuilt for issuers, investors, and exchanges, the protocol enables scalable, secure, and regulation-ready digital asset operations.",
-    image: "/assets/whitepaper-ds-protocol.png",
+    image: "/assets/header-image.png",
   },
 ];
 
@@ -22,7 +22,7 @@ const research = [
   {
     date: "April 2026",
     title: "From Wrappers to Venues. Unlocked by Securitize.",
-    image: "/assets/research-wrappers.png",
+    image: "/assets/header-image.png",
     button: "Read the Research",
   },
   {
@@ -46,7 +46,7 @@ function WhitepapersResearchPage() {
 
       <section className="relative h-[600px] overflow-hidden">
         <img
-          src="/assets/digital-reporting-hero.png"
+          src="/assets/header-image.png"
           alt="Whitepapers & Research"
           className="absolute inset-0 h-full w-full object-cover"
         />

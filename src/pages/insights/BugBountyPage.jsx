@@ -52,7 +52,7 @@ function BugBountyPage() {
 
       <section className="relative h-[600px] min-h-[360px] overflow-hidden">
         <img
-          src="/assets/header-image-01.d15f3179aad88647a525.png"
+          src="/assets/header-image.png"
           alt="Bug Bounty Program"
           className="absolute inset-0 h-full w-full object-cover"
         />

@@ -28,7 +28,7 @@ function IntroToTokenizationPage() {
 
       <section className="relative h-[600px] overflow-hidden">
         <img
-          src="/assets/digital-reporting-hero.png"
+          src="/assets/header-image.png"
           alt="Intro to Tokenization"
           className="absolute inset-0 h-full w-full object-cover"
         />
@@ -190,7 +190,7 @@ function IntroToTokenizationPage() {
 
       <div className="h-[220px] overflow-hidden bg-gray-200 md:h-[500px]">
         <img
-          src="/assets/intro-tokenization-banner.png"
+          src="/assets/bannerBuilding.png"
           alt="Banner separator"
           className="h-full w-full object-cover"
         />

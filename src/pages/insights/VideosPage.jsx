@@ -64,7 +64,7 @@ export default function VideosPage() {
           style={{ backgroundColor: "rgb(8,24,56)" }}
         />
         <img
-          src="/assets/insights/header-image-01.png"
+          src="/assets/header-image.png"
           alt="Videos"
           className="absolute inset-0 w-full h-full object-cover opacity-70"
         />

@@ -41,7 +41,7 @@ function APIsPage() {
 
       <section className="relative h-[600px] overflow-hidden">
         <img
-          src="/assets/header-image-01.d15f3179aad88647a525.png"
+          src="/assets/header-image.png"
           alt="API Offerings"
           className="absolute inset-0 h-full w-full object-cover"
         />
