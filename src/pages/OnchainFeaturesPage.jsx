@@ -161,232 +161,191 @@ function OnchainFeaturesPage() {
       <Navbar variant="light" />
 
       {/* HERO */}
-      <section className="px-5 pb-[96px] pt-[140px] md:px-10 lg:pt-[158px]">
-        <div className="mx-auto grid max-w-[1200px] grid-cols-1 items-center gap-16 md:grid-cols-2">
-          <div className="flex min-h-[520px] flex-col justify-center md:justify-between">
-            <h1 className="max-w-[530px] font-serif text-[58px] leading-[0.9] tracking-[-0.06em] text-black md:text-[82px] lg:text-[92px]">
-              Tokenized Assets,
-              <br />
-              Unlocked
-            </h1>
+<section className="bg-white px-5 pb-[24px] pt-[160px] md:px-10 lg:pt-[150px]">
+    <div className="mx-auto flex min-h-[calc(100vh-150px)] max-w-[1200px] flex-col justify-between">
+    <div className="grid grid-cols-1 items-center gap-10 md:grid-cols-[45%_55%]">
+      {/* Left */}
+      <div className="flex flex-col justify-center">
+        <h1
+          className="max-w-[530px] text-[48px] leading-[48px] tracking-[-0.06em] text-black sm:text-[56px] sm:leading-[56px] lg:text-[65px] lg:leading-[65px]"
+          style={{
+            fontFamily: '"PP Editorial New", sans-serif',
+            fontWeight: 400,
+            fontStyle: "normal",
+          }}
+        >
+          Tokenized Assets,
+          <br />
+          Unlocked
+        </h1>
 
-            <p className="mt-14 max-w-[430px] text-[16px] leading-[1.35] tracking-[-0.02em] text-[#07111f] md:mt-0">
-              Access DeFi-native capabilities that aim to bring real-world
-              assets into the programmable economy.
-            </p>
-          </div>
+        <p
+          className="mt-[130px] max-w-[430px] text-[16px] leading-[20px] text-[#2E3545] md:mt-[155px]"
+          style={{
+            fontFamily: "Roboto, sans-serif",
+            fontWeight: 400,
+            fontStyle: "normal",
+          }}
+        >
+          Access DeFi-native capabilities that aim to bring real-world assets
+          into the programmable economy.
+        </p>
+      </div>
 
-          <div className="relative flex h-[580px] items-center justify-center overflow-hidden">
-            <div className="absolute top-0 z-10 h-40 w-full bg-gradient-to-b from-[#f3f7fd] to-transparent" />
-            <div className="absolute bottom-0 z-10 h-40 w-full bg-gradient-to-t from-[#f3f7fd] to-transparent" />
+      {/* Right original image */}
+      <div className="flex items-center justify-center">
+        <img
+          src="https://cdn.builder.io/api/v1/file/assets%2Fd39b51a544e84e2fbb2445f58c6c6f2c%2Ff00ee0c2adc44a6ea5d52617cc9ef78a"
+          alt="Onchain ecosystem partners"
+          className="w-full max-w-[350px] object-contain"
+        />
+      </div>
+    </div>
 
-            <div className="logo-scroll flex flex-col gap-12">
-              {partners.map((partner, index) => (
-                <div
-                  key={`${partner.name}-${index}`}
-                  className={`flex items-center gap-8 ${
-                    partner.active
-                      ? "scale-110 opacity-100"
-                      : "opacity-20 grayscale"
-                  }`}
-                >
-                  <div
-                    className={`flex h-16 w-16 items-center justify-center rounded-full text-4xl font-bold ${
-                      partner.active
-                        ? "text-[#9f1822]"
-                        : "bg-[#dce2ea] text-[#8a9099]"
-                    }`}
-                  >
-                    {partner.icon}
-                  </div>
-
-                  <span
-                    className={`text-[38px] font-bold tracking-[-0.055em] md:text-[46px] ${
-                      partner.active ? "text-black" : "text-[#6b7280]"
-                    }`}
-                  >
-                    {partner.name}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+    <p
+      className="mt-12 text-center text-[10px] leading-[14px] text-[#6b7280]"
+      style={{
+        fontFamily: "Roboto, sans-serif",
+        fontWeight: 400,
+      }}
+    >
+      Certain onchain features rely on independent third-party protocols not
+      controlled or guaranteed by Securitize, may not apply to all tokenized
+      securities, and participation in DeFi protocols involves substantial
+      risks.
+    </p>
+  </div>
+</section>
 
       {/* UTILITY */}
-      <section className="bg-[#f3f7fd] px-5 pb-[84px] pt-[70px]">
-        <div className="mx-auto max-w-[1200px]">
-          <div className="mb-[56px] text-center">
-            <p className="mb-5 text-[12px] font-medium leading-none text-[#2b5b89]">
-              Blockchain Infrastructure
-            </p>
+<section className="bg-[#f3f7fd] px-5 pb-[84px] pt-[70px]">
+  <div className="mx-auto max-w-[1200px]">
+    <div className="text-center">
+      <p className="mb-6 text-[16px] leading-[20px] text-[#24507A]">
+        Blockchain Infrastructure
+      </p>
 
-            <h2 className="font-serif text-[42px] leading-[0.95] tracking-[-0.055em] text-[#020713] md:text-[58px]">
-              Onchain Utility, Enabled
-            </h2>
+      <h2
+        className="text-[42px] leading-[42px] tracking-[-0.06em] text-[#07142c] md:text-[65px] md:leading-[65px]"
+        style={{
+          fontFamily: '"PP Editorial New", sans-serif',
+          fontWeight: 400,
+        }}
+      >
+        Onchain Utility, Enabled
+      </h2>
 
-            <p className="mx-auto mt-6 max-w-[620px] text-[15px] leading-[1.4] text-[#07111f]">
-              Capabilites aimed at increasing the utility of your tokenized
-              assets.
-            </p>
-          </div>
+      <p className="mx-auto mt-8 max-w-[620px] text-[16px] leading-[20px] text-[#2E3545]">
+        Capabilites aimed at increasing the utility of your tokenized assets.
+      </p>
+    </div>
 
-          <div className="mx-auto grid max-w-[930px] grid-cols-1 gap-x-6 gap-y-8 md:grid-cols-2">
-            {utilityCards.map((card) => (
-              <article
-                key={card.title}
-                className="overflow-hidden rounded-[32px] border border-[#cfd4db] bg-[#eef2f7]/45"
-              >
-                <div className="min-h-[218px] px-[34px] pb-7 pt-[34px]">
-                  <div className="mb-8 flex items-start gap-6">
-                    <div className="flex h-[48px] w-[48px] shrink-0 items-center justify-center bg-[#dfe5ec] text-[22px] font-semibold text-[#111827]">
-                      {card.icon}
-                    </div>
+    <div className="mt-[58px] grid grid-cols-1 gap-x-[40px] gap-y-[40px] md:grid-cols-2">
+      {[
+        "ad9f4ac0cf714fe7900d529f6ae9bdb9",
+        "1bfc3aca7f204a78abe88b704686fdc7",
+        "96285869acbd4e439f0a6750f34507bb",
+        "acc62c8b15d6431bb109663f9a01cb22",
+        "4ccbd98dd93744d48a81376b87a4da3c",
+        "2d3bcb5a17314bc195092c0e47b84dc8",
+        "6fa0029f935742128ec484d47113318a",
+        "7bb29489f61f4571829264e6f92b6c25",
+      ].map((id) => (
+        <img
+          key={id}
+          src={`https://cdn.builder.io/api/v1/image/assets%2Fd39b51a544e84e2fbb2445f58c6c6f2c%2F${id}?width=943`}
+          alt=""
+          className="w-full rounded-[32px]"
+        />
+      ))}
+    </div>
+  </div>
+</section>
 
-                    <div>
-                      <h3 className="text-[17px] font-bold leading-[1.1] tracking-[-0.02em] text-[#171c22]">
-                        {card.title}
-                      </h3>
-                      <p className="mt-1 text-[16px] leading-[1.25] tracking-[-0.02em] text-[#4d535b]">
-                        {card.subtitle}
-                      </p>
-                    </div>
-                  </div>
+    {/* MARKETPLACES */}
+<section className="bg-white px-5 pb-[77px] pt-[41px] mt-[44px]">
+  <div className="mx-auto max-w-[790px]">
+    <div className="mb-[54px]">
+      <p className="mb-5 text-[16px] leading-[20px] text-[#24507A]">
+        Live Marketplaces
+      </p>
 
-                  {card.powered.length > 0 && (
-                    <div className="mb-7 flex flex-wrap items-center gap-x-5 gap-y-4">
-                      <span className="mr-1 text-[10px] font-extrabold uppercase text-[#4b535c]">
-                        Powered by
-                      </span>
+      <h2
+        className="text-[42px] leading-[42px] tracking-[-0.06em] text-[#07142c] md:text-[65px] md:leading-[65px]"
+        style={{
+          fontFamily: '"PP Editorial New", sans-serif',
+          fontWeight: 400,
+        }}
+      >
+        Liquidity, Activated
+      </h2>
 
-                      {card.powered.map((item) => (
-                        <span
-                          key={item}
-                          className="flex items-center gap-2 text-[13px] leading-none text-[#3f4650]"
-                        >
-                          <span className="h-[15px] w-[15px] rounded-full bg-[#10203a]" />
-                          {item}
-                        </span>
-                      ))}
-                    </div>
-                  )}
+      <p className="mt-8 text-[16px] leading-[20px] text-[#2E3545]">
+        Trade and access our assets on leading live markets.
+      </p>
+    </div>
 
-                  {card.body && (
-                    <p className="whitespace-pre-line text-[16px] leading-[1.24] tracking-[-0.02em] text-[#424950]">
-                      {card.body}
-                    </p>
-                  )}
-                </div>
+    <div className="w-full overflow-x-auto">
+      <table className="w-full min-w-[640px] border-collapse text-left">
+        <thead>
+          <tr className="border-b border-[#D5D8DD]">
+            <th className="pb-5 text-[14px] font-bold text-black">Market</th>
+            <th className="pb-5 text-[14px] font-bold text-black">Asset</th>
+            <th className="pb-5 text-[14px] font-bold text-black">Type</th>
+            <th className="pb-5 text-[14px] font-bold text-black">Details</th>
+          </tr>
+        </thead>
 
-                <div className="flex min-h-[58px] items-center gap-3 border-t border-[#d4d8de] px-[34px]">
-                  <span className="text-[12px] uppercase text-[#4f5660]">
-                    Available for:
+        <tbody>
+          {marketRows.map((row, index) => (
+            <tr
+              key={`${row.market}-${index}`}
+              className="border-b border-[#D5D8DD]"
+            >
+              <td className="py-[24px]">
+                <div className="flex items-center gap-2 text-[16px] font-semibold text-[#4B5563]">
+                  <span className="flex h-[20px] w-[20px] shrink-0 items-center justify-center rounded-full bg-[#284f9f] text-[10px] text-white">
+                    {row.icon}
                   </span>
-
-                  <div className="flex flex-wrap gap-2">
-                    {card.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className={`rounded-full px-3 py-[5px] text-[11px] font-semibold leading-none ${getTagClass(tag)}`}
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
+                  {row.market}
                 </div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
+              </td>
 
-      {/* MARKETPLACES */}
-      <section className="bg-[#f3f7fd] px-5 pb-[84px] pt-[70px]">
-        <div className="mx-auto max-w-[1200px]">
-          <div className="mx-auto max-w-[790px]">
-            <div className="mb-[54px]">
-              <p className="mb-5 text-[12px] font-medium leading-none text-[#2b5b89]">
-                Live Marketplaces
-              </p>
+              <td className="py-[24px]">
+                <span
+                  className={`rounded-full px-3 py-[5px] text-[11px] font-semibold leading-none ${getTagClass(
+                    row.asset
+                  )}`}
+                >
+                  {row.asset}
+                </span>
+              </td>
 
-              <h2 className="font-serif text-[42px] leading-[0.95] tracking-[-0.055em] text-[#020713] md:text-[58px]">
-                Liquidity, Activated
-              </h2>
+              <td className="py-[24px] text-[15px] text-black">
+                {row.type}
+              </td>
 
-              <p className="mt-8 text-[15px] leading-[1.4] text-[#07111f]">
-                Trade and access our assets on leading live markets.
-              </p>
-            </div>
+              <td className="py-[24px]">
+                <button className="rounded-full border border-[#D5D8DD] px-5 py-2 text-[13px] font-semibold text-black transition hover:bg-black hover:text-white">
+                  View →
+                </button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
 
-            <div className="w-full overflow-x-auto">
-              <table className="w-full min-w-[680px] border-collapse text-left">
-                <thead>
-                  <tr className="border-b border-[#c5cbd2]">
-                    <th className="pb-5 text-[13px] font-bold text-black">
-                      Market
-                    </th>
-                    <th className="pb-5 text-[13px] font-bold text-black">
-                      Asset
-                    </th>
-                    <th className="pb-5 text-[13px] font-bold text-black">
-                      Type
-                    </th>
-                    <th className="pb-5 text-[13px] font-bold text-black">
-                      Details
-                    </th>
-                  </tr>
-                </thead>
-
-                <tbody>
-                  {marketRows.map((row, index) => (
-                    <tr
-                      key={`${row.market}-${index}`}
-                      className="border-b border-[#c5cbd2]"
-                    >
-                      <td className="py-[22px]">
-                        <div className="flex items-center gap-2 text-[14px] font-medium text-[#1f2937]">
-                          <span className="flex h-[18px] w-[18px] items-center justify-center rounded-full bg-[#284f9f] text-[10px] text-white">
-                            {row.icon}
-                          </span>
-                          {row.market}
-                        </div>
-                      </td>
-
-                      <td className="py-[22px]">
-                        <span
-                          className={`rounded-full px-3 py-[5px] text-[11px] font-semibold leading-none ${getTagClass(row.asset)}`}
-                        >
-                          {row.asset}
-                        </span>
-                      </td>
-
-                      <td className="py-[22px] text-[14px] text-black">
-                        {row.type}
-                      </td>
-
-                      <td className="py-[22px]">
-                        <button className="rounded-full border border-[#c7ccd3] px-5 py-2 text-[12px] font-semibold text-black transition hover:bg-black hover:text-white">
-                          View →
-                        </button>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-
-            <p className="mt-8 text-[10px] leading-[1.35] text-[#5b626b]">
-              Note: Secondary market trading is not guaranteed and may be
-              limited by regulatory transfer restrictions, platform
-              availability, or investor eligibility requirements. Leverage and
-              looping functionalities are facilitated by independent third-party
-              protocols. Securitize does not control these protocols and does
-              not guarantee their availability, security, or performance.
-            </p>
-          </div>
-        </div>
-      </section>
+    <p className="mt-8 text-[10px] leading-[14px] text-[#6B7280]">
+      Note: Secondary market trading is not guaranteed and may be limited by
+      regulatory transfer restrictions, platform availability, or investor
+      eligibility requirements. Leverage and looping functionalities are
+      facilitated by independent third-party protocols. Securitize does not
+      control these protocols and does not guarantee their availability,
+      security, or performance.
+    </p>
+  </div>
+</section>
 
       {/* DEFI PROTOCOLS */}
       <section className="bg-[#f3f7fd] px-5 pb-[54px] pt-[41px]">
@@ -421,86 +380,122 @@ function OnchainFeaturesPage() {
       </section>
 
       {/* INVESTMENT CTA */}
-      <section className="bg-black px-5 pb-[46px] pt-24 text-white md:px-[140px]">
-        <div className="mx-auto max-w-[980px]">
-          <div className="mb-12 text-center">
-            <h2 className="mx-auto max-w-[560px] font-serif text-[40px] leading-[0.9] tracking-[-0.055em] text-white md:text-[54px]">
-              Step into the world of
-              <br />
-              tokenized assets
-            </h2>
+<section className="bg-black px-5 pb-[46px] pt-[96px] text-white md:px-[140px]">
+  <div className="mx-auto max-w-[980px]">
+    <div className="mb-[70px] text-center">
+      <h2
+        className="mx-auto max-w-[560px] text-[42px] leading-[42px] tracking-[-0.06em] text-white md:text-[58px] md:leading-[58px]"
+        style={{
+          fontFamily: '"PP Editorial New", sans-serif',
+          fontWeight: 400,
+        }}
+      >
+        Step into the world of
+        <br />
+        tokenized assets
+      </h2>
 
-            <p className="mx-auto mt-7 max-w-[640px] text-[12px] leading-[1.5] text-white/80">
-              Join the growing ecosystem of institutional investors looking for
-              onchain infrastructure for real-world assets.
+      <p className="mx-auto mt-8 max-w-[690px] text-[16px] leading-[20px] text-white">
+        Join the growing ecosystem of institutional investors looking for
+        onchain infrastructure for real-world assets.
+      </p>
+    </div>
+
+    <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+      {investmentCards.map((item) => (
+        <article key={item.title} className="overflow-hidden bg-[#d8d8d8] text-black">
+          <div className="flex h-[190px] items-center justify-center bg-[linear-gradient(rgba(3,11,30,.65),rgba(3,11,30,.65)),url('/hero.png')] bg-cover bg-center">
+            <span className="text-[44px] font-bold text-white">
+              {item.logo}
+            </span>
+          </div>
+
+          <div className="px-7 py-8">
+            <p className="mb-6 text-[11px] font-semibold text-[#24507a]">
+              {item.category} &nbsp; | &nbsp; {item.offered}
             </p>
-          </div>
 
-          <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
-            {investmentCards.map((item) => (
-              <article
-                key={item.title}
-                className="overflow-hidden bg-[#d8d8d8] text-black"
-              >
-                <div className="flex h-[135px] items-center justify-center bg-[linear-gradient(rgba(3,11,30,.65),rgba(3,11,30,.65)),url('/hero.png')] bg-cover bg-center">
-                  <span className="text-[34px] font-bold text-white">
-                    {item.logo}
-                  </span>
-                </div>
+            <h3
+              className="text-[28px] leading-[30px] tracking-[-0.05em] text-black"
+              style={{
+                fontFamily: '"PP Editorial New", sans-serif',
+                fontWeight: 400,
+              }}
+            >
+              {item.title}
+            </h3>
 
-                <div className="px-7 py-7">
-                  <p className="mb-5 text-[10px] font-medium text-[#24507a]">
-                    {item.category} &nbsp; | &nbsp; {item.offered}
-                  </p>
-
-                  <h3 className="font-serif text-[23px] leading-[1.05] tracking-[-0.04em]">
-                    {item.title}
-                  </h3>
-
-                  <p className="mt-6 text-[13px] leading-[1.45] text-black/70">
-                    {item.desc}
-                  </p>
-
-                  <div className="mt-6 border-t border-black/15 text-[12px]">
-                    {[
-                      ["Asset Class", item.asset],
-                      ["Min. Investment", item.min],
-                      ["Investor Type", item.investor],
-                      ["Redemptions", item.redemptions],
-                    ].map(([label, value]) => (
-                      <div
-                        key={label}
-                        className="flex justify-between border-b border-black/15 py-4"
-                      >
-                        <span>{label}</span>
-                        <strong>{value}</strong>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </article>
-            ))}
-          </div>
-
-          <div className="mt-9 flex justify-center">
-            <button className="rounded-full bg-[#d8d8d8] px-6 py-3 text-[13px] font-semibold text-black transition hover:bg-white">
-              Explore All Investments →
-            </button>
-          </div>
-
-          <div className="mt-36 text-[9px] leading-[1.45] text-white/45">
-            <p className="mb-4 underline">Disclosures</p>
-            <p>
-              Note: Certain assets referenced on this page are issued or
-              managed by third-party asset managers and are not managed by
-              Securitize Capital. For applicable fund material risks, please
-              visit each fund’s product page. Certain information contained
-              herein has been obtained from third party sources and such
-              information has not been independently verified.
+            <p className="mt-7 text-[16px] leading-[20px] text-black/70">
+              {item.desc}
             </p>
+
+            <div className="mt-7 border-t border-black/15 text-[14px]">
+              {[
+                ["Asset Class", item.asset],
+                ["Min. Investment", item.min],
+                ["Investor Type", item.investor],
+                ["Redemptions", item.redemptions],
+              ].map(([label, value]) => (
+                <div
+                  key={label}
+                  className="flex justify-between gap-6 border-b border-black/15 py-4"
+                >
+                  <span>{label}</span>
+                  <strong className="text-right">{value}</strong>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </article>
+      ))}
+    </div>
+  
+    <div className="mt-10 flex justify-center">
+      <button className="rounded-full bg-[#d8d8d8] px-7 py-4 text-[14px] font-semibold text-black transition hover:bg-white">
+        Explore All Investments →
+      </button>
+      
+    </div>
+  </div>
+
+       <div className="mt-[96px] text-[9px] leading-[13px] text-white/4 5 mx-auto max-w-[980px]">
+  <p className="mb-5 underline">Disclosures</p>
+
+  <p>
+    Note: Certain assets referenced on this page are issued or managed by
+    third-party asset managers and are not managed by Securitize Capital. For
+    applicable fund material risks, please visit each fund&apos;s product page:{" "}
+    <a href="#" className="text-[#1a74eb] underline">
+      ACRED
+    </a>
+    ,{" "}
+    <a href="#" className="text-[#1a74eb] underline">
+      HLSCOPE
+    </a>
+    ,{" "}
+    <a href="#" className="text-[#1a74eb] underline">
+      STAC
+    </a>
+    .
+  </p>
+
+  <p className="mt-5 text-white/45" >
+    Certain information contained herein has been obtained from third party
+    sources and such information has not been independently verified by
+    Securitize. No representation, warranty, or undertaking, expressed or
+    implied, is given to the accuracy or completeness of such information by
+    Securitize or any other person. While such sources are believed to be
+    reliable, Securitize does not assume any responsibility for the accuracy or
+    completeness of such information. Securitize does not undertake any
+    obligation to update the information contained herein as of any future date.
+    Except where otherwise indicated, the information contained in this
+    presentation is based on matters as they exist as of the date of preparation
+    of such material and not as of the date of distribution or any future date.
+    Recipients should not rely on this material in making any future investment
+    decision.
+  </p>
+</div>
+</section>
 
       {/* FOOTER */}
       <footer className="bg-black px-5 pb-10 pt-14 text-white md:px-[140px]">

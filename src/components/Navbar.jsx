@@ -1,15 +1,33 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
+/* ─────────────────────────────────────────────────────────────
+   FONT INJECTION
+   Geist       = Securitize's UI sans-serif (nav labels, buttons)
+   Cormorant   = closest free match to PP Editorial New (headlines)
+   Add this once in your root layout / index.html instead if preferred.
+───────────────────────────────────────────────────────────── */
+const FontInjector = () => (
+  <style>{`
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Geist:wght@300;400;500&display=swap');
+
+    body, html {
+      font-family: 'Geist', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+  `}</style>
+);
+
 const navItems = [
   {
     label: "Investments",
     dropdown: [
-      { title: "Onchain Features", link: "/onchain-features" },
-      { title: "Private Funds", link: "/invest" },
-      { title: "Public Stocks", link: "/investments/stocks" },
-      { title: "Alternative Assets", link: "/investments/alternative-assets" },
-      { title: "Registered Funds", link: "/investments/registered-funds" },
+      { title: "Onchain Features",      link: "/onchain-features" },
+      { title: "Private Funds",         link: "/invest" },
+      { title: "Public Stocks",         link: "/investments/stocks" },
+      { title: "Alternative Assets",    link: "/investments/alternative-assets" },
+      { title: "Registered Funds",      link: "/investments/registered-funds" },
     ],
   },
   {
@@ -34,38 +52,39 @@ const navItems = [
     ],
   },
   { label: "Ecosystem", link: "/partner-ecosystem" },
-{
-  label: "Resources",
-  dropdown: [
-    { section: "Insights" },
-    { title: "Intro to Tokenization", link: "/insights/intro-to-tokenization" },
-    { title: "Whitepapers & Research", link: "/insights/whitepapers" },
-    { title: "Articles", link: "/insights/articles" },
-    { title: "Videos", link: "/insights/videos" },
-    { section: "Developers" },
-    { title: "APIs", link: "/insights/apis" },
-    { title: "Bug Bounty", link: "/insights/bug-bounty" },
-    {
-      title: "Vault Registrar Sandbox",
-      link: "https://labs.securitize.io/",
-      external: true,
-    },
-  ],
-}, {
-  label: "About",
-  dropdown: [
-    { title: "Company", link: "/about-us/our-story" },
-    { title: "Media Coverage", link: "/about-us/media-coverage" },
-    { title: "Press Releases", link: "/about-us/press-releases" },
-    { title: "Investor Relations", link: "/about-us/investor-relations" },
-    { title: "Careers", link: "/about-us/careers" },
-  ],
-},
+  {
+    label: "Resources",
+    dropdown: [
+      { section: "Insights" },
+      { title: "Intro to Tokenization",    link: "/insights/intro-to-tokenization" },
+      { title: "Whitepapers & Research",   link: "/insights/whitepapers" },
+      { title: "Articles",                 link: "/insights/articles" },
+      { title: "Videos",                   link: "/insights/videos" },
+      { section: "Developers" },
+      { title: "APIs",                     link: "/insights/apis" },
+      { title: "Bug Bounty",               link: "/insights/bug-bounty" },
+      {
+        title: "Vault Registrar Sandbox",
+        link: "https://labs.securitize.io/",
+        external: true,
+      },
+    ],
+  },
+  {
+    label: "About",
+    dropdown: [
+      { title: "Company",            link: "/about-us/our-story" },
+      { title: "Media Coverage",     link: "/about-us/media-coverage" },
+      { title: "Press Releases",     link: "/about-us/press-releases" },
+      { title: "Investor Relations", link: "/about-us/investor-relations" },
+      { title: "Careers",            link: "/about-us/careers" },
+    ],
+  },
 ];
 
 function Navbar({ variant = "dark" }) {
-  const [scrolled, setScrolled] = useState(false);
-  const [mobileMenu, setMobileMenu] = useState(false);
+  const [scrolled, setScrolled]           = useState(false);
+  const [mobileMenu, setMobileMenu]       = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
 
   const isLight = variant === "light";
@@ -74,16 +93,13 @@ function Navbar({ variant = "dark" }) {
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
     onScroll();
-
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   useEffect(() => {
     document.body.style.overflow = mobileMenu ? "hidden" : "";
-    return () => {
-      document.body.style.overflow = "";
-    };
+    return () => { document.body.style.overflow = ""; };
   }, [mobileMenu]);
 
   const logoSrc = isSolid ? "/assets/logo-dark.svg" : "/assets/logo.svg";
@@ -91,22 +107,26 @@ function Navbar({ variant = "dark" }) {
 
   return (
     <>
+      <FontInjector />
+
       <nav
-        className={`fixed left-0 top-0 z-[9999] flex h-[80px] w-full items-center justify-between px-6 transition-all duration-300 lg:h-[100px] lg:px-9 ${
+        className={`fixed left-0 top-0 z-[9999] flex h-[72px] w-full min-w-[300px] items-center justify-between px-4 transition-all duration-300 sm:px-6 lg:h-[96px] lg:px-9 ${
           isSolid
-            ? "bg-[#f3f7fc]/95 text-black backdrop-blur-md border-b border-black/10"
+            ? "border-b border-black/10 bg-[#f3f7fc]/95 text-black backdrop-blur-md"
             : "bg-transparent text-white"
         }`}
+        style={{ fontFamily: "'Geist', sans-serif" }}
       >
-        <Link to="/" className="relative z-50">
+        <Link to="/" className="relative z-50 flex items-center">
           <img
             src={logoSrc}
             alt="Securitize"
-            className="h-[24px] w-auto lg:h-[29px]"
+            className="h-[20px] w-auto max-w-[145px] sm:h-[24px] sm:max-w-[180px] lg:h-[29px]"
           />
         </Link>
 
-        <ul className={`hidden h-full items-center gap-x-[30px] lg:flex ${navText}`}>
+        {/* Desktop nav links */}
+        <ul className={`hidden h-full items-center gap-x-[24px] xl:gap-x-[30px] lg:flex ${navText}`}>
           {navItems.map((item) => (
             <li
               key={item.label}
@@ -116,20 +136,20 @@ function Navbar({ variant = "dark" }) {
             >
               {item.dropdown ? (
                 <>
-                  <button className="flex items-center gap-1 text-sm opacity-80 transition-opacity hover:opacity-100">
+                  <button
+                    className="flex items-center gap-1 text-sm opacity-80 transition-opacity hover:opacity-100"
+                    style={{ fontFamily: "'Geist', sans-serif" }}
+                  >
                     {item.label}
                     <ChevronIcon open={activeDropdown === item.label} />
                   </button>
-
-                  <Dropdown
-                    item={item}
-                    open={activeDropdown === item.label}
-                  />
+                  <Dropdown item={item} open={activeDropdown === item.label} />
                 </>
               ) : (
                 <Link
                   to={item.link}
                   className="text-sm opacity-80 transition-opacity hover:opacity-100"
+                  style={{ fontFamily: "'Geist', sans-serif" }}
                 >
                   {item.label}
                 </Link>
@@ -138,35 +158,40 @@ function Navbar({ variant = "dark" }) {
           ))}
         </ul>
 
+        {/* CTA buttons */}
         <div className="flex items-center gap-3">
-          <div className="hidden items-center gap-4 lg:flex">
+          <div className="hidden items-center gap-3 lg:flex">
             <a
-              href="#"
-              className={`rounded-full px-6 py-2.5 text-sm font-medium transition-all ${
+              href="/registration/name"
+              className={`rounded-full px-5 py-2.5 text-sm font-medium transition-all xl:px-6 ${
                 isSolid
                   ? "bg-black text-white hover:bg-black/90"
                   : "bg-white text-black hover:bg-white/90"
               }`}
+              style={{ fontFamily: "'Geist', sans-serif" }}
             >
               Sign Up
             </a>
-
             <a
-              href="#"
+              href="/login"
               className={`rounded-full border px-4 py-2.5 text-sm font-medium transition-all ${
                 isSolid
                   ? "border-black/20 text-black hover:bg-black/5"
                   : "border-white/30 text-white hover:bg-white/10"
               }`}
+              style={{ fontFamily: "'Geist', sans-serif" }}
             >
               Log In
             </a>
           </div>
 
+          {/* Hamburger */}
           <button
+            type="button"
+            aria-label="Toggle menu"
             onClick={() => setMobileMenu((prev) => !prev)}
-            className={`relative z-50 flex h-10 w-10 items-center justify-center rounded-md transition lg:hidden ${
-              isSolid
+            className={`relative z-[100001] mr-1 flex h-11 w-11 shrink-0 items-center justify-center rounded-md transition lg:hidden ${
+              isSolid || mobileMenu
                 ? "text-black hover:bg-black/5"
                 : "text-white hover:bg-white/10"
             }`}
@@ -181,18 +206,22 @@ function Navbar({ variant = "dark" }) {
   );
 }
 
+/* ─────────────────────────────────────────────────────────────
+   DROPDOWN
+───────────────────────────────────────────────────────────── */
 function Dropdown({ item, open }) {
   const isResources = item.label === "Resources";
-const isAbout = item.label === "About";
+  const isAbout     = item.label === "About";
+
+  const sharedTransition = `absolute top-[75px] bg-white text-black shadow-2xl transition-all duration-200 ${
+    open ? "visible translate-y-0 opacity-100" : "invisible -translate-y-2 opacity-0"
+  }`;
+
+  const fontStyle = { fontFamily: "'Geist', sans-serif" };
+
   if (isResources) {
     return (
-      <div
-        className={`absolute top-[75px] left-1/2 w-[292px] -translate-x-1/2 bg-white p-5 text-black shadow-2xl transition-all duration-200 ${
-          open
-            ? "visible translate-y-0 opacity-100"
-            : "invisible -translate-y-2 opacity-0"
-        }`}
-      >
+      <div className={`${sharedTransition} left-1/2 w-[292px] -translate-x-1/2 p-5`} style={fontStyle}>
         <ul className="flex flex-col gap-2">
           {item.dropdown.map((link, index) => {
             if (link.section) {
@@ -207,29 +236,19 @@ const isAbout = item.label === "About";
                 </li>
               );
             }
-
             const content = (
               <p className="flex items-center gap-2 text-[16px] font-medium leading-[1.35] text-black">
-                {link.title}
-                <ArrowIcon />
+                {link.title}<ArrowIcon />
               </p>
             );
-
             return (
               <li key={link.title}>
                 {link.external ? (
-                  <a
-                    href={link.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block py-[3px]"
-                  >
+                  <a href={link.link} target="_blank" rel="noopener noreferrer" className="block py-[3px]">
                     {content}
                   </a>
                 ) : (
-                  <Link to={link.link} className="block py-[3px]">
-                    {content}
-                  </Link>
+                  <Link to={link.link} className="block py-[3px]">{content}</Link>
                 )}
               </li>
             );
@@ -239,22 +258,15 @@ const isAbout = item.label === "About";
     );
   }
 
-    if (isAbout) {
+  if (isAbout) {
     return (
-      <div
-        className={`absolute top-[75px] left-1/2 w-[240px] -translate-x-1/2 border border-black/10 bg-white p-5 text-black shadow-xl transition-all duration-200 ${
-          open
-            ? "visible translate-y-0 opacity-100"
-            : "invisible -translate-y-2 opacity-0"
-        }`}
-      >
+      <div className={`${sharedTransition} left-1/2 w-[240px] -translate-x-1/2 border border-black/10 p-5`} style={fontStyle}>
         <ul className="flex flex-col gap-2">
           {item.dropdown.map((link) => (
             <li key={link.title}>
               <Link to={link.link} className="group block py-[3px]">
                 <p className="flex items-center gap-2 text-[16px] font-medium leading-[1.35] text-black">
-                  {link.title}
-                  <ArrowIcon />
+                  {link.title}<ArrowIcon />
                 </p>
               </Link>
             </li>
@@ -263,43 +275,40 @@ const isAbout = item.label === "About";
       </div>
     );
   }
+
   return (
     <div
-      className={`absolute top-[75px] bg-white text-black shadow-2xl border border-black/10 transition-all duration-200 ${
+      className={`${sharedTransition} border border-black/10 ${
         item.wide
           ? "left-1/2 w-[420px] -translate-x-1/2 rounded-xl p-5"
           : "left-0 w-[240px] overflow-hidden rounded-xl"
-      } ${
-        open
-          ? "visible translate-y-0 opacity-100"
-          : "invisible -translate-y-2 opacity-0"
       }`}
+      style={fontStyle}
     >
       {item.dropdown.map((link, index) => (
         <Link
           key={link.title}
           to={link.link}
           className={`group block px-5 py-4 transition hover:bg-black/[0.03] ${
-            item.wide && index !== item.dropdown.length - 1
-              ? "border-b border-black/10"
-              : ""
+            item.wide && index !== item.dropdown.length - 1 ? "border-b border-black/10" : ""
           }`}
         >
           <div className="flex items-center justify-between gap-3">
             <span className="text-[15px] font-medium">{link.title}</span>
             <ArrowIcon />
           </div>
-
           {link.desc && (
-            <p className="mt-1 text-xs leading-relaxed text-black/50">
-              {link.desc}
-            </p>
+            <p className="mt-1 text-xs leading-relaxed text-black/50">{link.desc}</p>
           )}
         </Link>
       ))}
     </div>
   );
 }
+
+/* ─────────────────────────────────────────────────────────────
+   MOBILE MENU
+───────────────────────────────────────────────────────────── */
 function MobileMenu({ open, onClose }) {
   const [openDropdown, setOpenDropdown] = useState(null);
 
@@ -310,58 +319,53 @@ function MobileMenu({ open, onClose }) {
       }`}
     >
       <div
-        className={`absolute left-1/2 top-[24px] h-[calc(100vh-48px)] w-[calc(100%-32px)] max-w-[1022px] -translate-x-1/2 overflow-hidden bg-white shadow-2xl transition-all duration-300 ${
+        className={`absolute left-1/2 top-[14px] h-[calc(100vh-28px)] w-[calc(100%-20px)] max-w-[960px] -translate-x-1/2 overflow-hidden bg-white shadow-2xl transition-all duration-300 sm:top-[24px] sm:h-[calc(100vh-48px)] sm:w-[calc(100%-32px)] ${
           open ? "translate-y-0 opacity-100" : "-translate-y-4 opacity-0"
         }`}
+        style={{ fontFamily: "'Geist', sans-serif" }}
       >
-        <div className="flex h-[86px] items-center justify-between border-b border-black/10 px-5 md:px-8">
+        {/* Mobile header */}
+        <div className="flex h-[72px] items-center justify-between border-b border-black/10 px-4 sm:h-[86px] sm:px-6 md:px-8">
           <Link to="/" onClick={onClose} className="flex items-center">
             <img
-              src="/assets/logodark.svg"
+              src="/assets/logo-dark.svg"
               alt="Securitize"
-              className="h-[31px] w-auto"
+              className="h-[22px] w-auto max-w-[145px] sm:h-[31px] sm:max-w-[190px]"
             />
           </Link>
-
           <button
             type="button"
             onClick={onClose}
+            aria-label="Close menu"
             className="flex h-10 w-10 items-center justify-center text-[34px] font-light leading-none text-black"
           >
             ×
           </button>
         </div>
 
-        <div className="flex gap-2 border-b border-black/10 px-5 py-3 md:px-8">
-          <a
-            href="#"
-            className="rounded-full bg-[#03060d] px-6 py-[10px] text-[14px] font-semibold text-white"
-          >
+        {/* Auth buttons */}
+        <div className="flex flex-wrap gap-2 border-b border-black/10 px-4 py-3 sm:px-6 md:px-8">
+          <a href="#" className="rounded-full bg-[#03060d] px-5 py-[10px] text-[14px] font-semibold text-white">
             Sign Up
           </a>
-
-          <a
-            href="#"
-            className="rounded-full border border-black/25 px-6 py-[10px] text-[14px] font-medium text-black"
-          >
+          <a href="#" className="rounded-full border border-black/25 px-5 py-[10px] text-[14px] font-medium text-black">
             Log In
           </a>
         </div>
 
-        <div className="h-[calc(100%-147px)] overflow-y-auto">
-          <nav className="px-5 py-3 md:px-8">
+        {/* Nav items */}
+        <div className="h-[calc(100%-137px)] overflow-y-auto sm:h-[calc(100%-147px)]">
+          <nav className="px-4 py-3 sm:px-6 md:px-8">
             {navItems.map((item) => {
               const isOpen = openDropdown === item.label;
 
               if (item.dropdown) {
                 return (
-                  <div key={item.label}>
+                  <div key={item.label} className="border-b border-black/5">
                     <button
                       type="button"
-                      onClick={() =>
-                        setOpenDropdown(isOpen ? null : item.label)
-                      }
-                      className="flex w-full items-center gap-1 py-[17px] text-left text-[15px] font-normal text-[#374151]"
+                      onClick={() => setOpenDropdown(isOpen ? null : item.label)}
+                      className="flex w-full items-center justify-between py-[16px] text-left text-[15px] font-normal text-[#374151]"
                     >
                       <span>{item.label}</span>
                       <ChevronIcon open={isOpen} />
@@ -369,25 +373,19 @@ function MobileMenu({ open, onClose }) {
 
                     <div
                       className={`grid transition-all duration-300 ${
-                        isOpen
-                          ? "grid-rows-[1fr] pb-4 opacity-100"
-                          : "grid-rows-[0fr] opacity-0"
+                        isOpen ? "grid-rows-[1fr] pb-4 opacity-100" : "grid-rows-[0fr] opacity-0"
                       }`}
                     >
                       <div className="overflow-hidden">
-                        <div className="ml-5 flex flex-col gap-3 pb-2">
+                        <div className="ml-4 flex flex-col gap-3 pb-2 sm:ml-5">
                           {item.dropdown.map((link) => {
                             if (link.section) {
                               return (
-                                <p
-                                  key={link.section}
-                                  className="pt-2 text-[12px] font-medium uppercase tracking-wide text-black/40"
-                                >
+                                <p key={link.section} className="pt-2 text-[12px] font-medium uppercase tracking-wide text-black/40">
                                   {link.section}
                                 </p>
                               );
                             }
-
                             return link.external ? (
                               <a
                                 key={link.title}
@@ -395,7 +393,7 @@ function MobileMenu({ open, onClose }) {
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 onClick={onClose}
-                                className="text-[15px] font-medium text-black"
+                                className="text-[15px] font-medium leading-snug text-black"
                               >
                                 {link.title} →
                               </a>
@@ -404,7 +402,7 @@ function MobileMenu({ open, onClose }) {
                                 key={link.title}
                                 to={link.link}
                                 onClick={onClose}
-                                className="text-[15px] font-medium text-black"
+                                className="text-[15px] font-medium leading-snug text-black"
                               >
                                 {link.title} →
                               </Link>
@@ -422,7 +420,7 @@ function MobileMenu({ open, onClose }) {
                   key={item.label}
                   to={item.link}
                   onClick={onClose}
-                  className="block py-[17px] text-[15px] font-normal text-[#374151]"
+                  className="block border-b border-black/5 py-[16px] text-[15px] font-normal text-[#374151]"
                 >
                   {item.label}
                 </Link>
@@ -435,9 +433,16 @@ function MobileMenu({ open, onClose }) {
   );
 }
 
+/* ─────────────────────────────────────────────────────────────
+   ICONS
+───────────────────────────────────────────────────────────── */
 function ChevronIcon({ open }) {
   return (
-    <svg className={`h-4 w-4 transition-transform ${open ? "rotate-180" : ""}`} fill="currentColor" viewBox="0 0 256 256">
+    <svg
+      className={`h-4 w-4 shrink-0 transition-transform ${open ? "rotate-180" : ""}`}
+      fill="currentColor"
+      viewBox="0 0 256 256"
+    >
       <path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z" />
     </svg>
   );
@@ -445,7 +450,11 @@ function ChevronIcon({ open }) {
 
 function ArrowIcon() {
   return (
-    <svg className="h-3 w-3 opacity-60 transition-transform group-hover:translate-x-1" fill="currentColor" viewBox="0 0 24 24">
+    <svg
+      className="h-3 w-3 opacity-60 transition-transform group-hover:translate-x-1"
+      fill="currentColor"
+      viewBox="0 0 24 24"
+    >
       <path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.75.75 0 0 1 1.06-1.06l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z" />
     </svg>
   );
@@ -453,7 +462,7 @@ function ArrowIcon() {
 
 function MenuIcon() {
   return (
-    <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+    <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
       <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
     </svg>
   );
@@ -466,6 +475,5 @@ function CloseIcon() {
     </svg>
   );
 }
-
 
 export default Navbar;

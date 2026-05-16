@@ -36,7 +36,8 @@ import CareersPage from "./pages/about/CareersPage";
 import MediaCoveragePage from "./pages/about/MediaCoveragePage";
 import InvestorRelationsPage from "./pages/about/InvestorRelationsPage";
 import PressReleasesPage from "./pages/about/PressReleasesPage";
-
+import LoginPage from "./pages/LoginPage";
+import RegistrationNamePage from "./pages/RegistrationNamePage";
 function HomePage() {
   return (
     <div className="bg-[#030b1e] min-h-screen text-white font-sans selection:bg-blue-500/30">
@@ -73,7 +74,8 @@ function App() {
 
         {/* Homepage */}
         <Route path="/" element={<HomePage />} />
-
+<Route path="/login" element={<LoginPage />} />
+<Route path="/registration/name" element={<RegistrationNamePage />} />
         <Route
         path="/insights/intro-to-tokenization"
         element={<IntroToTokenizationPage />}
