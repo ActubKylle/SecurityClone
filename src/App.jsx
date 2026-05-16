@@ -31,7 +31,11 @@ import ArticlesPage from "./pages/insights/ArticlesPage";
 import BugBountyPage from "./pages/insights/BugBountyPage";
 import APIsPage from "./pages/insights/APIsPage";
 
-
+import CompanyPage from "./pages/about/CompanyPage";
+import CareersPage from "./pages/about/CareersPage";
+import MediaCoveragePage from "./pages/about/MediaCoveragePage";
+import InvestorRelationsPage from "./pages/about/InvestorRelationsPage";
+import PressReleasesPage from "./pages/about/PressReleasesPage";
 
 function HomePage() {
   return (
@@ -74,6 +78,14 @@ function App() {
         path="/insights/intro-to-tokenization"
         element={<IntroToTokenizationPage />}
       />
+
+      <Route path="/about-us/our-story" element={<CompanyPage />} />
+<Route path="/about-us/careers" element={<CareersPage />} />
+<Route path="/about-us/media-coverage" element={<MediaCoveragePage />} />
+<Route path="/about-us/investor-relations" element={<InvestorRelationsPage />} />
+<Route path="/about-us/press-releases" element={<PressReleasesPage />} />
+
+
 
 <Route
   path="/insights/whitepapers"

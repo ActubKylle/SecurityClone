@@ -51,7 +51,16 @@ const navItems = [
       external: true,
     },
   ],
-},  { label: "About", link: "/about" },
+}, {
+  label: "About",
+  dropdown: [
+    { title: "Company", link: "/about-us/our-story" },
+    { title: "Media Coverage", link: "/about-us/media-coverage" },
+    { title: "Press Releases", link: "/about-us/press-releases" },
+    { title: "Investor Relations", link: "/about-us/investor-relations" },
+    { title: "Careers", link: "/about-us/careers" },
+  ],
+},
 ];
 
 function Navbar({ variant = "dark" }) {
@@ -174,7 +183,7 @@ function Navbar({ variant = "dark" }) {
 
 function Dropdown({ item, open }) {
   const isResources = item.label === "Resources";
-
+const isAbout = item.label === "About";
   if (isResources) {
     return (
       <div
@@ -230,6 +239,30 @@ function Dropdown({ item, open }) {
     );
   }
 
+    if (isAbout) {
+    return (
+      <div
+        className={`absolute top-[75px] left-1/2 w-[240px] -translate-x-1/2 border border-black/10 bg-white p-5 text-black shadow-xl transition-all duration-200 ${
+          open
+            ? "visible translate-y-0 opacity-100"
+            : "invisible -translate-y-2 opacity-0"
+        }`}
+      >
+        <ul className="flex flex-col gap-2">
+          {item.dropdown.map((link) => (
+            <li key={link.title}>
+              <Link to={link.link} className="group block py-[3px]">
+                <p className="flex items-center gap-2 text-[16px] font-medium leading-[1.35] text-black">
+                  {link.title}
+                  <ArrowIcon />
+                </p>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+    );
+  }
   return (
     <div
       className={`absolute top-[75px] bg-white text-black shadow-2xl border border-black/10 transition-all duration-200 ${
