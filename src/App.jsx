@@ -43,6 +43,8 @@ import BlackRockFundPage from "./pages/primary-market/BlackRockFundPage";
 import GetInTouchPage from "./pages/GetInTouchPage";
 import HLScopePage from "./pages/primary-market/HLScopePage";
 
+import ScrollToTop from "./components/ScrollToTop";
+
 import PageLoader from "./components/PageLoader";
 function HomePage() {
   return (
@@ -73,8 +75,8 @@ function HomePage() {
 function App() {
   return (
     <BrowserRouter>
+    <ScrollToTop />
       <PageLoader />
-
       <Routes>
         {/* Homepage */}
         <Route path="/" element={<HomePage />} />
@@ -91,7 +93,7 @@ function App() {
           path="/primary-market/blackrock-fund"
           element={<BlackRockFundPage />}
         />
-        
+
         <Route path="/primary-market/hl-scope" element={<HLScopePage />} />
         <Route path="/get-in-touch" element={<GetInTouchPage />} />
         {/* Insights */}
