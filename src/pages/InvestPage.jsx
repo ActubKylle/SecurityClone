@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import InvestCTA from "../components/InvestCTA";
 
 const categories = [
   "All Opportunities",
@@ -395,6 +396,7 @@ export default function InvestPage() {
 
         </div>
       </div>
+      <InvestCTA />
 
       <Footer />
     </div>

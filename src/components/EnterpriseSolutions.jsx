@@ -4,19 +4,19 @@ const EnterpriseSolutions = () => {
       title: "Tokenization as a Service",
       desc: "Tokenize your investment products on our compliance-focused platform.",
       img: "./assets/3.png", // Placeholder matching the code
-      link: "/institutional-tokenization"
+      link: "/solutions/institutional-tokenization"
     },
     {
       title: "Fund Administration",
       desc: "Manage your entire fund on a single integrated platform.",
       img: "/assets/2.png",
-      link: "/fund-administration"
+      link: "/solutions/fund-administration"
     },
     {
       title: "Digital Asset Reporting",
       desc: "Institutional-grade reporting for digital assets.",
       img: "/assets/1.png",
-      link: "/digital-asset-reporting"
+      link: "/solutions/digital-asset-reporting"
     }
   ];
 

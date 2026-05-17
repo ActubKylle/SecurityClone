@@ -36,7 +36,7 @@ const Hero = () => {
 
         {/* Right Headline - Gamit ang Serif font (PP Editorial New) */}
         <div className="flex flex-col items-start lg:mb-4">
-<h1 className="font-serif italic text-[54px] sm:text-6xl lg:text-[100px] leading-[0.9] tracking-tight mb-8">
+            <h1 className="font-serif italic text-[54px] sm:text-6xl lg:text-[100px] leading-[0.9] tracking-tight mb-8">
               Tokenize the <br /> World.
           </h1>
           <button className="flex items-center gap-3 text-sm tracking-[0.2em] uppercase text-gray-300 hover:text-white transition-all group">

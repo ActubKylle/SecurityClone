@@ -21,7 +21,7 @@ const AboutSection = () => {
             </p>
             <div className="flex">
               <a
-                href="#"
+                href="/about-us/our-story"
                 className="py-1 px-4 rounded-full flex items-center justify-center text-sm bg-black text-white hover:bg-gray-800 transition-all group"
               >
                 Our Story
