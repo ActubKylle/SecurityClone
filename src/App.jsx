@@ -42,8 +42,7 @@ import RegistrationNamePage from "./pages/RegistrationNamePage";
 import PageLoader from "./components/PageLoader";
 function HomePage() {
   return (
-    <div className="bg-[#030b1e] min-h-screen text-white font-sans selection:bg-blue-500/30">
-
+<div className="min-h-screen w-full overflow-x-hidden bg-[#030b1e] text-white font-sans selection:bg-blue-500/30">
       <Navbar />
       <Hero />
       <TrustedInstitutions />

@@ -64,8 +64,7 @@ export default function MediaCoverage() {
             Securitize in the News
           </h2>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 w-full lg:items-stretch gap-5 py-5 lg:py-10 px-5 justify-center lg:justify-start">
-            {newsItems.map((item, i) => (
+<div className="grid grid-cols-1 lg:grid-cols-3 w-full lg:items-stretch gap-5 py-5 lg:py-10 justify-center lg:justify-start">              {newsItems.map((item, i) => (
               <MediaCard key={i} {...item} />
             ))}
           </div>

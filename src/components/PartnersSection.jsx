@@ -55,7 +55,7 @@ const row2 = [
 ];
 function LogoPill({ item }) {
   return (
-    <div className="flex h-[100px] w-[100px] shrink-0 items-center justify-center rounded-[60px] bg-white p-[10px] md:p-[20px]">
+    <div className="flex h-[72px] w-[72px] shrink-0 items-center justify-center rounded-full bg-white p-[12px] sm:h-[86px] sm:w-[86px] md:h-[100px] md:w-[100px] md:p-[20px]">
       <img
         src={item.src}
         alt={item.name}
@@ -69,9 +69,9 @@ function MarqueeRow({ items, reverse = false }) {
   const repeated = [...items, ...items, ...items, ...items];
 
   return (
-    <div className="w-full overflow-hidden" style={{ width: "532px" }}>
+    <div className="w-full max-w-[532px] overflow-hidden">
       <div
-        className={`flex gap-[8px] ${
+        className={`flex w-max gap-[8px] ${
           reverse ? "animate-partners-reverse" : "animate-partners"
         }`}
       >
@@ -85,8 +85,8 @@ function MarqueeRow({ items, reverse = false }) {
 
 function PartnersSection() {
   return (
-    <section className="flex flex-col items-center bg-[#f3f7fc] px-5 py-[80px] md:px-10 md:py-[160px]">
-      <style>{`
+<section className="overflow-hidden flex flex-col items-center bg-[#f3f7fc] px-5 py-[80px] md:px-10 md:py-[160px]">
+        <style>{`
         @keyframes partnersSlide {
           from { transform: translateX(0); }
           to { transform: translateX(-648px); }

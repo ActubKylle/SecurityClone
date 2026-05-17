@@ -35,7 +35,7 @@ const footerLinks = {
 
 export default function Footer() {
   return (
-    <footer className="bg-[#03060d] text-white/50 w-full px-10 lg:px-[140px] py-20">
+<footer className="overflow-hidden bg-[#03060d] text-white/50 w-full px-5 md:px-10 lg:px-[140px] py-20">
       <div className="max-w-[1440px] mx-auto flex flex-col gap-y-[60px]">
 
         {/* Logo Section */}
