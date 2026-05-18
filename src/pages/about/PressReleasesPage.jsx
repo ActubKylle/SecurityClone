@@ -9,12 +9,42 @@ const ArrowIcon = () => (
 
 // TODO: Replace with actual press releases from your saved page
 const releases = [
-  { date: "3/26/2026", title: "Securitize Announces Partnership with NYSE", img: "/assets/about/press/placeholder.jpg", href: "#" },
-  { date: "3/15/2026", title: "Securitize to Combine with Cantor Equity Partners II", img: "/assets/about/press/placeholder.jpg", href: "#" },
-  { date: "3/1/2026", title: "Vault Registrar General Availability Announced", img: "/assets/about/press/placeholder.jpg", href: "#" },
-  { date: "2/19/2026", title: "Euler Integrates Securitize DS Protocol", img: "/assets/about/press/placeholder.jpg", href: "#" },
-  { date: "2/12/2026", title: "Securitize Integrates UniswapX Technology", img: "/assets/about/press/placeholder.jpg", href: "#" },
-  { date: "2/5/2026", title: "Securitize Comments on EU DLT Pilot Regime", img: "/assets/about/press/placeholder.jpg", href: "#" },
+  {
+    date: "3/26/2026",
+    title: "Securitize Announces Partnership with NYSE",
+    img: "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?q=80&w=1200&auto=format&fit=crop",
+    href: "#",
+  },
+  {
+    date: "3/15/2026",
+    title: "Securitize to Combine with Cantor Equity Partners II",
+    img: "https://images.unsplash.com/photo-1554469384-e58fac16e23a?q=80&w=1200&auto=format&fit=crop",
+    href: "#",
+  },
+  {
+    date: "3/1/2026",
+    title: "Vault Registrar General Availability Announced",
+    img: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200&auto=format&fit=crop",
+    href: "#",
+  },
+  {
+    date: "2/19/2026",
+    title: "Euler Integrates Securitize DS Protocol",
+    img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200&auto=format&fit=crop",
+    href: "#",
+  },
+  {
+    date: "2/12/2026",
+    title: "Securitize Integrates UniswapX Technology",
+    img: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=1200&auto=format&fit=crop",
+    href: "#",
+  },
+  {
+    date: "2/5/2026",
+    title: "Securitize Comments on EU DLT Pilot Regime",
+    img: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=1200&auto=format&fit=crop",
+    href: "#",
+  },
 ];
 
 export default function PressReleasesPage() {

@@ -59,7 +59,10 @@ export default function MediaCoveragePage() {
       <Navbar />
 
       <section className="relative w-full h-[600px] overflow-hidden">
-        <div className="absolute inset-0" style={{ backgroundColor: "rgb(8,24,56)" }} />
+        <div
+          className="absolute inset-0"
+          style={{ backgroundColor: "rgb(8,24,56)" }}
+        />
         <img
           src="/assets/header-image.png"
           alt="Securitize In the News"
@@ -67,9 +70,11 @@ export default function MediaCoveragePage() {
         />
         <div className="relative max-w-[1160px] mx-auto w-full h-full pt-[140px] pb-10 lg:pt-[200px] lg:pb-[100px] px-5 flex items-end">
           <div className="flex flex-col gap-3 md:gap-5">
-            <span className="text-white/70 text-xs uppercase tracking-wide">Media Coverage</span>
-<h1 className="font-editorial text-[80px] leading-[80px] text-white tracking-[-0.04em]">
-                Securitize In the News
+            <span className="text-white/70 text-xs uppercase tracking-wide">
+              Media Coverage
+            </span>
+            <h1 className="font-editorial text-[80px] leading-[80px] text-white tracking-[-0.04em]">
+              Securitize In the News
             </h1>
           </div>
         </div>
@@ -93,7 +98,9 @@ export default function MediaCoveragePage() {
                   className="w-full object-cover aspect-[1.77] border-b border-[#03060d]/20"
                 />
                 <div className="flex flex-col items-start justify-start p-5 lg:p-8 gap-5 lg:gap-6 flex-grow">
-                  <p className="text-sm text-[#03060d] opacity-60">{a.outlet} · {a.date}</p>
+                  <p className="text-sm text-[#03060d] opacity-60">
+                    {a.outlet} · {a.date}
+                  </p>
                   <h3 className="font-serif text-base md:text-2xl line-clamp-3 text-[#03060d]">
                     {a.title}
                   </h3>
