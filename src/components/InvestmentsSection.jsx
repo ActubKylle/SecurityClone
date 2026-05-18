@@ -97,8 +97,12 @@ const InvestmentsSection = () => {
   ];
 
   return (
+    
     <section className="bg-[#f3f7fc] py-20 md:py-[120px] px-5 md:px-10 space-y-[120px]">
+<div className="h-[4px] bg-white -mx-5 md:-mx-10" />
+
       <div className="max-w-[1160px] mx-auto flex flex-col gap-[120px]">
+        
         {/* --- PRIVATE FUNDS --- */}
         <div className="w-full flex flex-col items-center">
           <SectionHeader

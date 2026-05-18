@@ -9,12 +9,48 @@ const ArrowIcon = () => (
 
 // TODO: Fill with actual press article entries from your saved page
 const articles = [
-  { date: "2026", outlet: "Bloomberg", title: "Securitize and NYSE Partner on Tokenized Equities", href: "#", img: "/assets/about/media/placeholder.jpg" },
-  { date: "2026", outlet: "Reuters", title: "BlackRock's BUIDL Reaches New Milestone on Securitize", href: "#", img: "/assets/about/media/placeholder.jpg" },
-  { date: "2026", outlet: "CoinDesk", title: "Inside Securitize's Path to a Public Listing", href: "#", img: "/assets/about/media/placeholder.jpg" },
-  { date: "2026", outlet: "Financial Times", title: "Wall Street Embraces Tokenization", href: "#", img: "/assets/about/media/placeholder.jpg" },
-  { date: "2026", outlet: "The Block", title: "Securitize Expands DS Protocol Integrations", href: "#", img: "/assets/about/media/placeholder.jpg" },
-  { date: "2026", outlet: "WSJ", title: "Tokenized Treasuries Cross $5B Milestone", href: "#", img: "/assets/about/media/placeholder.jpg" },
+  {
+    date: "2026",
+    outlet: "Bloomberg",
+    title: "Securitize and NYSE Partner on Tokenized Equities",
+    href: "#",
+    img: "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?q=80&w=1200&auto=format&fit=crop",
+  },
+  {
+    date: "2026",
+    outlet: "Reuters",
+    title: "BlackRock's BUIDL Reaches New Milestone on Securitize",
+    href: "#",
+    img: "https://images.unsplash.com/photo-1554469384-e58fac16e23a?q=80&w=1200&auto=format&fit=crop",
+  },
+  {
+    date: "2026",
+    outlet: "CoinDesk",
+    title: "Inside Securitize's Path to a Public Listing",
+    href: "#",
+    img: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200&auto=format&fit=crop",
+  },
+  {
+    date: "2026",
+    outlet: "Financial Times",
+    title: "Wall Street Embraces Tokenization",
+    href: "#",
+    img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200&auto=format&fit=crop",
+  },
+  {
+    date: "2026",
+    outlet: "The Block",
+    title: "Securitize Expands DS Protocol Integrations",
+    href: "#",
+    img: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=1200&auto=format&fit=crop",
+  },
+  {
+    date: "2026",
+    outlet: "WSJ",
+    title: "Tokenized Treasuries Cross $5B Milestone",
+    href: "#",
+    img: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=1200&auto=format&fit=crop",
+  },
 ];
 
 export default function MediaCoveragePage() {
@@ -32,8 +68,8 @@ export default function MediaCoveragePage() {
         <div className="relative max-w-[1160px] mx-auto w-full h-full pt-[140px] pb-10 lg:pt-[200px] lg:pb-[100px] px-5 flex items-end">
           <div className="flex flex-col gap-3 md:gap-5">
             <span className="text-white/70 text-xs uppercase tracking-wide">Media Coverage</span>
-            <h1 className="font-serif text-white text-5xl lg:text-7xl font-normal">
-              Securitize In the News
+<h1 className="font-editorial text-[80px] leading-[80px] text-white tracking-[-0.04em]">
+                Securitize In the News
             </h1>
           </div>
         </div>
